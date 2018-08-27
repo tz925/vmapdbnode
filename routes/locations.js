@@ -9,6 +9,10 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   console.log(req.body);
+  const { } = req.body
+  const location = {
+
+  }
 })
 
 module.exports = router;

@@ -1,7 +1,31 @@
 const express = require('express');
 const app = express();
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const locationRoutes = require('./routes/locations');
+
+mongoose.connect('mongodb://tianzi:Tianzi925@ds133202.mlab.com:33202/vmapdb')
+mongoose.Promise = global.Promise
+const db = mongoose.connection;
+db.once('open', () => console.log('Connected to MongoLab instance.'))
+  .on('error', error => console.log('Error connecting to MongoLab:', error));
+
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Header', '*');
+  if(req.method === 'OPTIONS'){
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+    return res.status(200).json({})
+  }
+  next();
+})
+
 app.use('/locations', locationRoutes)
 
 
