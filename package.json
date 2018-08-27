@@ -1,0 +1,26 @@
+{
+  "name": "vmapdbnode",
+  "version": "1.0.0",
+  "description": "Node.js server for vision media map front-end DB API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tz925/vmapdbnode.git"
+  },
+  "author": "Tunan Zhou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tz925/vmapdbnode/issues"
+  },
+  "homepage": "https://github.com/tz925/vmapdbnode#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
