@@ -3,6 +3,7 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 const locationRoutes = require('./routes/locations');
 
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
   }
   next();
 })
+app.use(cors())
 
 app.use('/locations', locationRoutes)
 
